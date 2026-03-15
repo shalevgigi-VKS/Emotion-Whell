@@ -76,6 +76,24 @@ let isSpinning = false;
 const canvas = document.getElementById('wheel-canvas');
 const ctx = canvas.getContext('2d');
 let selectedCharacterName = "";
+let is3DEnabled = true;
+
+function set3D(enabled) {
+    const wheelCanvas = document.getElementById('wheel-canvas');
+    const toggleBtn = document.getElementById('toggle-3d');
+    is3DEnabled = enabled;
+    if (enabled) {
+        wheelCanvas.classList.add('three-d');
+        toggleBtn.innerText = 'כיבוי תלת-ממד';
+    } else {
+        wheelCanvas.classList.remove('three-d');
+        toggleBtn.innerText = 'הפעל תלת-ממד';
+    }
+}
+
+function toggle3D() {
+    set3D(!is3DEnabled);
+}
 
 function drawWheel() {
     const centerX = canvas.width / 2;
@@ -239,5 +257,6 @@ function showConversationCard(index) {
 }
 
 window.onload = () => {
+    set3D(true);
     drawWheel();
 };

@@ -199,10 +199,10 @@ function spinWheel() {
             spinBtn.disabled = false;
             spinBtn.classList.remove('opacity-50', 'cursor-not-allowed');
 
-            const normalizedRotation = (currentRotation % (2 * Math.PI));
-            const topPointerAngle = (1.5 * Math.PI);
-            let winningIndex = Math.floor((topPointerAngle - normalizedRotation + 2 * Math.PI) % (2 * Math.PI) / sliceAngle);
-            winningIndex = (topics.length - winningIndex) % topics.length;
+            const topPointerAngle = 1.5 * Math.PI;
+            const normalizedAngle = (topPointerAngle - currentRotation + 2 * Math.PI) % (2 * Math.PI);
+            let winningIndex = Math.floor(normalizedAngle / sliceAngle);
+            winningIndex = (winningIndex + topics.length) % topics.length;
 
             setTimeout(() => {
                 if (window.navigator.vibrate) window.navigator.vibrate(200);

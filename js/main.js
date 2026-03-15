@@ -173,7 +173,7 @@ function spinWheel() {
     const stopAngle = Math.random() * (2 * Math.PI);
     const totalRotation = extraSpins * 2 * Math.PI + stopAngle;
     const startTime = performance.now();
-    const duration = 15000; // 15 שניות
+    const duration = 9000; // 9 שניות
 
     let lastTickAngle = 0;
     const sliceAngle = (2 * Math.PI) / totalSlices;

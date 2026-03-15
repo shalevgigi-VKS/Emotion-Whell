@@ -175,6 +175,9 @@ function spinWheel() {
     const startTime = performance.now();
     const duration = 9000; // 9 שניות
 
+    const wheelCanvas = document.getElementById('wheel-canvas');
+    wheelCanvas.classList.add('spin');
+
     let lastTickAngle = 0;
     const sliceAngle = (2 * Math.PI) / totalSlices;
 
@@ -208,6 +211,7 @@ function spinWheel() {
                 if (window.navigator.vibrate) window.navigator.vibrate(200);
                 showConversationCard(winningIndex);
             }, 500);
+            wheelCanvas.classList.remove('spin');
         }
     }
     requestAnimationFrame(animate);
